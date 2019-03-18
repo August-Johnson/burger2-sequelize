@@ -1,0 +1,112 @@
+* {
+    box-sizing: border-box;
+  }
+
+body {
+    background-color: #FF960D;
+}
+
+img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 20%;
+    height: auto;
+}
+
+h1 {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    text-align: center;
+    font-size: 350%;
+    font-weight: 500;
+    margin-top: 0px;
+}
+
+h2 {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    text-align: center;
+    font-size: 300%;
+    font-weight: 550;
+    display: inline-block;
+    border-bottom: 2px solid #000000;
+}
+
+.burger-container:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+
+.burger-column {
+    float: left;
+    width: 50%;
+    margin-bottom: 20px;
+  }
+
+  .burger-column.not-eaten {
+     text-align: center;
+     padding: 15px;
+  }
+
+  .burger-column.already-eaten {
+      text-align: center;
+      padding: 15px;
+}
+
+.burger-row {
+    position: relative;
+    padding-bottom: 0px;
+}
+
+.burger-row h3 {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 160%;
+    background-color: #ffffff;
+    margin-right: 20px;
+    margin-bottom: 0px;
+    padding-right: 40px;
+    padding-left: 40px;
+    padding-top: 10px;
+    padding-bottom: 30px;
+    display: inline-block;
+    width: 60%;
+}
+
+.eaten-burger-row h3{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 160%;
+    background-color: #D3D3D3D3;
+    margin-right: 20px;
+    margin-bottom: 0px;
+    padding-right: 40px;
+    padding-left: 40px;
+    padding-top: 10px;
+    padding-bottom: 30px;
+    display: inline-block;
+    width: 60%;
+}
+
+.eat-burger {
+    position: absolute;
+    padding: 10px;
+    bottom: 0;
+}
+
+.create-burger {
+    text-align: center;
+}
+
+.create-burger button {
+    background-color: #0873FF;
+    color: #ffffff;
+    padding: 15px 50px;
+    font-size: 120%;
+    font-weight: 650;
+    margin-top: 10px;
+}
+
+.create-burger p {
+    font-size: 120%;
+    font-weight: 600;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}

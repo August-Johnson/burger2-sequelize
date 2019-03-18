@@ -1,0 +1,63 @@
+<img src="/assets/img/burger.png">
+
+<h1>Eat-Da-Burger!</h1>
+
+{{!-- Container for all burgers, seperate from the add burger form --}}
+<div class="burger-container">
+
+    {{!-- Burgers that haven't been eaten --}}
+    <div class="burger-column not-eaten">
+        <h2>Burgers to Eat</h2>
+
+        {{#each burgers}}
+        {{#unless devoured}}
+
+        <div class="burger-row">
+
+            <h3>{{id}}. {{burger_name}}</h3>
+
+            <button class="eat-burger" data-id="{{id}}">
+                Devour It!
+            </button>
+        </div>
+
+        <br />
+        {{/unless}}
+        {{/each}}
+    </div>
+
+    {{!-- Burgers that have been eaten --}}
+    <div class="burger-column already-eaten">
+        <h2>Burgers Eaten!</h2>
+
+        {{#each burgers}}
+        {{#if devoured}}
+
+        <div class="eaten-burger-row">
+
+            <h3>{{id}}. {{burger_name}}</h3>
+
+        </div>
+        <br />
+        
+        {{/if}}
+        {{/each}}
+    </div>
+
+</div>
+
+{{!-- Adding burger form --}}
+
+
+<form class="create-burger">
+
+    <h2>Add a Burger</h2>
+
+    <div class="form-group">
+        <textarea rows="5" cols="50" id="burg"></textarea>
+    </div>
+
+    <button type="submit">Submit</button>
+
+    <p>Enter a burger you want to eat! </p>
+</form>
