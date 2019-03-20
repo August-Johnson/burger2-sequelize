@@ -16,9 +16,19 @@
 
             <h3>{{id}}. {{burger_name}}</h3>
 
-            <button class="eat-burger" data-id="{{id}}">
-                Devour It!
-            </button>
+            <form class="customer-devour">
+
+                
+                <select id="cust"></select>
+
+                <button class="eat-burger" data-id={{id}}>
+                    Devour It!
+                </button>
+
+            </form>
+
+
+
         </div>
 
         <br />
@@ -39,7 +49,7 @@
 
         </div>
         <br />
-        
+
         {{/if}}
         {{/each}}
     </div>
