@@ -7,11 +7,6 @@ module.exports = function (sequelize, DataTypes) {
                 min: 1
             }
         },
-        burgers_eaten: {
-            type: DataTypes.INTEGER,
-            allowNull: false,
-            defaultValue: 0
-        }
     });
 
     Customer.associate = function (models) {

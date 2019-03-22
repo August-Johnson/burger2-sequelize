@@ -1,23 +1,23 @@
 var db = require("../models");
 
-// Get request to retrieve the burgers from the database and then render the results to the page.
 module.exports = function (app) {
 
+    // Gets all burgers from the table and displays them to the page using index.handlebars
     app.get("/", function (req, res) {
         db.Burger.findAll({ include: [db.Customer] }).then(function (results) {
 
-            res.render("index", {burgers: results});
+            res.render("index", { burgers: results });
         });
     });
 
-    // Get route for getting all of the burgers and thier customer if they have one.
+    // Gets the data from the burgers table and displays it as json.
     app.get("/api/burgers", function (req, res) {
         db.Burger.findAll({ include: [db.Customer] }).then(function (results) {
             res.json(results);
         });
     });
 
-    // Handles the post request. Using the data from the Ajax request, add a new burger to the table.
+    // Listens for the post request of adding a new burger. Adds the new burger to the table using the data being passed (burger_name).
     app.post("/api/burgers", function (req, res) {
         db.Burger.create({
             burger_name: req.body.name
@@ -26,12 +26,10 @@ module.exports = function (app) {
         });
     });
 
-    // Handles the put request for updating the state of the burger (eaten or not).
-    // Uses the data from the Ajax request to change the burgers 'devoured' boolean value to true.
+    // Listens for the put request when the user 'eats' a burger. Updates the devoured boolean value to true.
     app.put("/api/burgers/:id", function (req, res) {
         db.Burger.update({
-            devoured: req.body.devoured,
-            CustomerId: req.body.customerId
+            devoured: req.body.devoured
         },
             {
                 where: {
@@ -42,6 +40,3 @@ module.exports = function (app) {
             });
     });
 };
-
-// TABLE OF CUSTOMERS SHOWING ALL OF THEM AND THEIR 'STATS' (BURGERS EATEN ETC).
-// EACH BURGER EATEN HAS A CUSTOMERS NAME NEXT TO IT.

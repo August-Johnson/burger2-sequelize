@@ -4,15 +4,13 @@ $(function () {
 
         // Getting an id value from the burger whose button was just clicked.
         var id = $(this).data("id");
-        
 
         // Creating an object with the key value of its new devoured boolean, to reference from the controller.
         var burgerObj = {
-            devoured: true,
-            customerId: 1
+            devoured: true
         };
 
-        // Ajax PUT call. Passing in the id from what we established it as earlier, and then sending the object data/values we created.
+        // Ajax PUT call. Passing in the id to the targeted URL and then sending the object data/values we created.
         $.ajax("/api/burgers/" + id, {
             type: "PUT",
             data: burgerObj
@@ -39,26 +37,6 @@ $(function () {
         }).then(function () {
 
             console.log("Added burger " + newBurger.name);
-            location.reload();
-        });
-    });
-
-    // Creating new user ajax post
-    $(".create-customer").on("submit", function (event) {
-        event.preventDefault();
-
-        // Creating an object of the new burger with a key value of its name, to reference in the controller.
-        var newCustomer = {
-            name: $("#cust").val().trim(),
-        };
-
-        // Ajax POST request. Sending the object representing the new burger you just added as the data.
-        $.ajax("/api/customers", {
-            type: "POST",
-            data: newCustomer
-        }).then(function () {
-
-            console.log("Added customer: " + newCustomer.name);
             location.reload();
         });
     });
