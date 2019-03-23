@@ -8,7 +8,7 @@ $(function () {
 
         // Getting an id value from the burger whose button was just clicked.
         var id = $(this).data("id");
-        var customerName = $(".customer-name").val().trim();
+        var customerName = $(".customer-name" + id).val().trim();
 
         // Creating an object with the key value of its new devoured boolean, to reference from the controller.
         var burgerObj = {
