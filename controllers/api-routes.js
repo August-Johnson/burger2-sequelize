@@ -27,16 +27,54 @@ module.exports = function (app) {
     });
 
     // Listens for the put request when the user 'eats' a burger. Updates the devoured boolean value to true.
-    app.put("/api/burgers/:id", function (req, res) {
-        db.Burger.update({
-            devoured: req.body.devoured
-        },
-            {
-                where: {
-                    id: req.params.id
-                }
-            }).then(function (results) {
-                res.json(results);
-            });
+    // app.put("/api/burgers/:id", function (req, res) {
+    //     db.Burger.update({
+    //         devoured: req.body.devoured
+    //     },
+    //         {
+    //             where: {
+    //                 id: req.params.id
+    //             }
+    //         }).then(function (results) {
+    //             res.json(results);
+    //         });
+    // });
+
+    app.get("/api/customers", function (req, res) {
+        db.Customer.findAll({ include: [db.Burger] }).then(function (results) {
+            res.json(results);
+        });
     });
+
+
+    app.put("/api/burgers/:id", function (req, res) {
+        db.Customer.findAll({
+            where: {
+                customer_name: req.body.customerName
+            }
+        }).then(function (results) {
+            
+            if (results.length > 0) {
+                db.Burger.update({
+                    devoured: true,
+                    CustomerId: results[0].id
+                },
+                    {
+                        where: {
+                            id: req.params.id
+                        }
+                    }).then(function (results) {
+                        res.json(results);
+                    });
+            }
+            else {
+                db.Customer.create({
+                    customer_name: req.body.customerName
+                }).then(function (results) {
+                    res.json(results);
+                });
+            }
+        });
+    });
+
 };
