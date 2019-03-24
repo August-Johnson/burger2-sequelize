@@ -62,7 +62,7 @@ h2 {
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     font-size: 160%;
     background-color: #ffffff;
-    margin-right: 20px;
+    margin-right: 10px;
     margin-bottom: 0px;
     padding-right: 40px;
     padding-left: 40px;
@@ -86,14 +86,25 @@ h2 {
     width: 60%;
 }
 
-.eat-burger {
-    position: absolute;
+.customer-form {
+    margin: 0;
+}
+
+.customer-name {
     padding: 10px;
-    bottom: 0;
+}
+
+.eat-burger {
+    padding: 10px;
+    margin-left: 0px;
 }
 
 .create-burger {
     text-align: center;
+}
+
+.burger-name {
+    padding: 20px;
 }
 
 .create-burger button {

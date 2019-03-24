@@ -50,13 +50,9 @@ module.exports = function (app) {
                 db.Customer.create({
                     customer_name: req.body.customerName
                 }).then(function (results) {
-                    db.Customer.findAll({
-                        where: {
-                            customer_name: req.body.customerName
-                        }
-                    }).then(function (results) {
-                        eatBurger(results[0].id, req.params.id, res);
-                    })
+
+                        eatBurger(results.id, req.params.id, res);
+            
                 });
             }
         });

@@ -11,12 +11,14 @@
         {{#each burgers}}
         {{#unless devoured}}
         <div class="burger-row">
-            {{!-- Customer name input field --}}
+
+            <h3>{{id}}. {{burger_name}}</h3>
+
             <form class="customer-form">
-                <input type="text" class="customer-name{{id}}">
+                {{!-- Customer name input field --}}
+                <input type="text" class="customer-name customer-name{{id}}" placeholder="Customer Name">
                 {{!-- Button to 'eat' burger and submit the name of the customer eating it --}}
-                <h3>{{id}}. {{burger_name}}</h3>
-                <button type="submit" class="eat-burger" data-id={{id}}>Devour it!</button>
+                <button class="eat-burger" data-id={{id}}>Devour it!</button>
             </form>
 
         </div>
@@ -45,7 +47,7 @@
     <h2>Add a Burger</h2>
 
     <div class="form-group">
-        <textarea rows="5" cols="50" id="burg"></textarea>
+        <input type="text" class="burger-name" id="burg" placeholder="Burger Name">
     </div>
 
     <button type="submit">Submit</button>

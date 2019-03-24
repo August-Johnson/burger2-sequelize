@@ -1,6 +1,7 @@
 $(function () {
     // Listens for when the 'devour' button has been clicked, then updates the burger's devoured value to true.
     $(".eat-burger").on("click", function (event) {
+        event.preventDefault();
 
         // Getting an id value from the burger whose button was just clicked.
         var id = $(this).data("id");
