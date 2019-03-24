@@ -7,14 +7,14 @@
     {{!-- Burgers that haven't been eaten --}}
     <div class="burger-column not-eaten">
         <h2>Burgers to Eat</h2>
+
         {{#each burgers}}
         {{#unless devoured}}
-
         <div class="burger-row">
-
+            {{!-- Customer name input field --}}
             <form class="customer-form">
                 <input type="text" class="customer-name{{id}}">
-
+                {{!-- Button to 'eat' burger and submit the name of the customer eating it --}}
                 <h3>{{id}}. {{burger_name}}</h3>
                 <button type="submit" class="eat-burger" data-id={{id}}>Devour it!</button>
             </form>
@@ -31,7 +31,7 @@
         {{#if devoured}}
 
         <div class="eaten-burger-row">
-
+            {{!-- Name of the customer who ate this burger --}}
             <h3>{{id}}. {{burger_name}} - Eaten By ({{Customer.customer_name}})</h3>
 
         </div>

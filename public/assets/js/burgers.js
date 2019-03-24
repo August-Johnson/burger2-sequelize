@@ -1,22 +1,19 @@
 $(function () {
-
-    // NOTES: CREATE CLASS WITH ID SELECT AS WELL ON EACH FORM/INPUT
-
-
-    // Listens for a eat-burger button event, then updates the burger's devoured value to true.
+    // Listens for when the 'devour' button has been clicked, then updates the burger's devoured value to true.
     $(".eat-burger").on("click", function (event) {
 
         // Getting an id value from the burger whose button was just clicked.
         var id = $(this).data("id");
+
+        // Getting the name of the customer from the input field of the burger that was just eaten.
         var customerName = $(".customer-name" + id).val().trim();
 
-        // Creating an object with the key value of its new devoured boolean, to reference from the controller.
+        // Creating an object with the key value of the customer's name who is eating it.
         var burgerObj = {
-            devoured: true,
             customerName: customerName
         };
 
-        // Ajax PUT call. Passing in the id to the targeted URL and then sending the object data/values we created.
+        // Ajax PUT request. Passing in the id to the targeted URL and then sending the object data/values we created.
         $.ajax("/api/burgers/" + id, {
             type: "PUT",
             data: burgerObj
@@ -27,10 +24,7 @@ $(function () {
         });
     });
 
-
-    
-
-    // Listens for the submit button even. Adds a new burger to the table/database, using the value inside the text area as the burger's name.
+    // Listens for the submit button event. Adds a new burger to the burgers table in the database, using the value inside the text area as the burger's name.
     $(".create-burger").on("submit", function (event) {
         event.preventDefault();
 
